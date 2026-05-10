@@ -1,0 +1,29 @@
+{
+  "name": "@xinhua81/ttech-skills",
+  "version": "1.0.0",
+  "description": "A collection of useful skills for AI Agents (OpenClaw, Claude Code, Hermes, QoderWork, etc.)",
+  "scripts": {
+    "sync": "node SKILLs/packages/sync.js",
+    "sync:check": "node SKILLs/packages/sync.js --check",
+    "sync:verbose": "node SKILLs/packages/sync.js --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xinhua81/TTech-SKILLs.git"
+  },
+  "keywords": [
+    "skill",
+    "agent",
+    "openclaw",
+    "claude-code",
+    "hermes",
+    "qoderwork",
+    "ai"
+  ],
+  "author": "TTech.xin",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Xinhua81/TTech-SKILLs/issues"
+  },
+  "homepage": "https://github.com/Xinhua81/TTech-SKILLs#readme"
+}
