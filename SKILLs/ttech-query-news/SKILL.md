@@ -1,6 +1,6 @@
 ---
 name: ttech-query-news
-description: Call this SKILL when the user asks about tech news, tech trends, industry dynamics, or news summaries. Trigger scenarios include: (1) real-time tech news queries, asking about the latest tech headlines, breaking news, or event developments; (2) tech trends and insights, exploring development trends, market movements, or competitive landscape in cutting-edge fields such as artificial intelligence, semiconductors, cloud computing, Web3, and biotechnology; (3) news要点速览, asking for news highlights on a certain day/week/month, or asking for daily/weekly/monthly briefings; (4) news detail deep dives, when a news title or ID is known, requesting to read the full text or view related news.
+description: Call this SKILL when the user asks about tech news, tech trends, industry dynamics, or news summaries. Trigger scenarios are (1) real-time tech news queries, asking about the latest tech headlines, breaking news, or event developments; (2) tech trends and insights, exploring development trends, market movements, or competitive landscape in cutting-edge fields such as artificial intelligence, semiconductors, cloud computing, Web3, and biotechnology; (3) news要点速览, asking for news highlights on a certain day/week/month, or asking for daily/weekly/monthly briefings; (4) news detail deep dives, when a news title or ID is known, requesting to read the full text or view related news.
 author: TTech.xin
 ---
 
