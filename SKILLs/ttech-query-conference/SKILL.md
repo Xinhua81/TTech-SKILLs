@@ -1,6 +1,6 @@
 ---
 name: ttech-query-conference
-description: Call this SKILL when the user asks about tech conferences, industry summits, product launches, or exhibition information. Trigger scenarios include: (1) asking about conference agendas by time, e.g., what tech conferences are in May this year, what conferences are upcoming/this month/next month; (2) asking about conference agendas by type, e.g., what academic/enterprise/comprehensive/regional conferences are this year; (3) asking about conference agendas by organizer, e.g., when are Nvidia/Google/Huawei/Alibaba conferences; (4) asking about conference agendas by keyword, e.g., when is this year's GTC/Huawei Connect/Alibaba Cloud Apsara Conference.
+description: Call this SKILL when the user asks about tech conferences, industry summits, product launches, or exhibition information. Trigger scenarios are (1) asking about conference agendas by time, e.g., what tech conferences are in May this year, what conferences are upcoming/this month/next month; (2) asking about conference agendas by type, e.g., what academic/enterprise/comprehensive/regional conferences are this year; (3) asking about conference agendas by organizer, e.g., when are Nvidia/Google/Huawei/Alibaba conferences; (4) asking about conference agendas by keyword, e.g., when is this year's GTC/Huawei Connect/Alibaba Cloud Apsara Conference.
 author: TTech.xin
 ---
 

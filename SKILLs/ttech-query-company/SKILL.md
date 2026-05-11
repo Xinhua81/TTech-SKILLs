@@ -1,6 +1,6 @@
 ---
 name: ttech-query-company
-description: Call this SKILL when the user asks about real-time tech company dynamics, stock data, or company-related news. Trigger scenarios include: (1) asking about company-specific real-time dynamics, **specific company** recent news aggregation (distinct from industry-wide news), understanding the entity's latest movements; (2) asking about real-time/historical stock prices of tech companies, such as daily/monthly/yearly lines; (3) asking about competitive or cooperative relationships between tech companies; (4) asking about a company's full name, listing location, and stock code.
+description: Call this SKILL when the user asks about real-time tech company dynamics, stock data, or company-related news. Trigger scenarios are (1) asking about company-specific real-time dynamics, **specific company** recent news aggregation (distinct from industry-wide news), understanding the entity's latest movements; (2) asking about real-time/historical stock prices of tech companies, such as daily/monthly/yearly lines; (3) asking about competitive or cooperative relationships between tech companies; (4) asking about a company's full name, listing location, and stock code.
 author: TTech.xin
 ---
 
