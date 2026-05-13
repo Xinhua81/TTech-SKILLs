@@ -3,6 +3,7 @@
 [![API](https://img.shields.io/badge/API-RESTful-blue)](https://ttech.xin)
 [![Platform](https://img.shields.io/badge/Platform-OpenClaw%20%7C%20QoderWork%20%7C%20Hermes%20%7C%20Claude%20Code-green)]()
 [![License](https://img.shields.io/badge/License-Apache%202.0-yellow.svg)](LICENSE)
+![GitHub stars](https://img.shields.io/github/stars/Xinhua81/TTech-SKILLs?style=social)
 
 TTech-SKILL 是一组面向 Agent 的技能（SKILL）定义文件，Agent 通过本 SKILL 可以更加高效地获取新闻、公司（含股票）、公共服务（会议、天气）、商品（电商）、AI 模型等信息。通过本 SKILL 获取的数据更加及时、准确、精炼，可有效降低 Token 消耗和对爬虫工具的依赖。
 TTech-SKILL 基于[TTech.xin](https://ttech.xin/developers) 公开的 RESTful API 开发，所有 API 均为开放接口。面向开发者，TTech 支持并鼓励用户提交数据，**向所有开放世界的Agent提供有价值的数据**，提升Agent的执行效率。
@@ -30,8 +31,65 @@ TTech-SKILL 基于[TTech.xin](https://ttech.xin/developers) 公开的 RESTful AP
 ---
 
 ## 快速开始
-### OpenClaw
-待更新:
+### 安装TTech-SKILL
+**前提条件**
+在执行下载命令之前，请关注：
+- 建议先安装Agent，然后再安装SKILL；
+- 确保你的电脑已经安装了Node.js：
+  - 在终端命令行中执行 node -v和npm -v；
+  - 上述命令应该可以显示相应的版本号，如提示不认识上述命令，请到[nodejs.org](nodejs.org)下载并安装Node.js（推荐V22.0.0及以上版本）；
+- 安装方式1依赖最少且对所有地区有效，优先推荐；非中国大陆地区可以采用安装方式2；中国大陆地区访问github不稳定，可以采用安装方式3;
+
+**安装方式1：手工下载与安装（推荐）**
+第1步：到网站[TTech.xin](https://TTech.xin/downloads)下载SKILL，并解压到临时目录，如`/tmp/TTech-SKILLs`；
+第2步：执行安装如下命令：
+```bash
+npx skills add /tmp/TTech-SKILLs -g
+```
+安装过程会执行如下交互：
+- Select skill to install: 列出所有SKILL供用户选择，通过空格键和上下键进行选择，建议全部选择；
+- Proceed with installation：询问是否执行安装操作，建议选择Yes；
+- Installed N skills：汇总给出SKILL的安装情况；
+
+npx skills命令默认将SKILL安装在`~/.agents/skills/`目录中，并在其发现的所有Agent中建立符号链接，链接到`~/.agents/skills/{skill-name}`。
+
+**安装方式2：基于github包安装**
+执行如下命令：
+```
+# 方案A
+# 第1步：先克隆到临时目录
+git clone https://github.com/Xinhua81/TTech-SKILLs.git /tmp/TTech-SKILLs
+# 第2步：从本地路径安装
+npx skills add /tmp/TTech-SKILLs -g
+```
+或者：
+```bash
+# 方案B
+npx skills add github:Xinhua81/TTech-SKILLs -g
+# 或者
+npx skills add Xinhua81/TTech-SKILLs -g
+```
+
+注：
+- 方案A和方案B的本质是一样的，都是先从github上下载SKILL包，然后通过npx skills命令安装，不过执行方案A前需要先安装git命令；
+- 方案B中的2种命令是一样的，npx skills默认就是github；
+
+
+**安装方式3：基于gitee安装**
+```bash
+# 第1步：先克隆到临时目录
+git clone https://gitee.com/ttech-xin/ttech-skills.git /tmp/TTech-SKILLs
+# 第2步：从本地路径安装
+npx skills add /tmp/TTech-SKILLs -g
+```
+或者
+```bash
+npx skills add https://gitee.com:ttech-xin/ttech-skills -g
+```
+安装方式与方式2类似，区别是从gitee网站上下载SKILL包。
+
+**安装方式4：Agent平台定制化安装工具**
+待更新
 安装TTech所有技能：
 ```bash
 openclaw skills install github:Xinhua81/TTech-SKILLs.git
@@ -41,13 +99,20 @@ openclaw skills install github:Xinhua81/TTech-SKILLs.git
 ```bash
 openclaw skills install github:Xinhua81/TTech-SKILLs.git/ttech-query-news
 ```
-### QoderWork
+
+### 配置Agent的SKILL路径
+npx skills支持的Agent
+
+#### OpenClaw
+待更新:
+
+#### QoderWork
 待补充
 
-### Hermes
+#### Hermes
 待补充
 
-### Claude Code
+#### Claude Code
 待补充
 
 ---
@@ -150,4 +215,4 @@ SKILLs/packages/
 
 ## 贡献者
 <!-- readme: contributors -start -->
-<!-- readme: contributors -end -->
+<!-- readme: contributors -end -->
