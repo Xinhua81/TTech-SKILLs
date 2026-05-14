@@ -1,13 +1,13 @@
-# TTech-SKILL
+# TTech-SKILLs
 
 [![API](https://img.shields.io/badge/API-RESTful-blue)](https://ttech.xin)
-[![Platform](https://img.shields.io/badge/Platform-OpenClaw%20%7C%20QoderWork%20%7C%20Hermes%20%7C%20Claude%20Code-green)]()
+[![Platform](https://img.shields.io/badge/Platform-OpenClaw%20%7C%20QoderWork%20%7C%20Hermes%20%7C%20Claude%20Code%20%7C%20Cursor%20%7C%20Codex%20%7C%20Gemini%20CLI%20%7C%20Windsurf%20%7C%20Cline%20%7C%20Roo%20Code%20%7C%20Amp%20%7C%20Goose%20%7C%20Qoder%20%7C%20Qwen%20Code-green)]()
 [![License](https://img.shields.io/badge/License-Apache%202.0-yellow.svg)](LICENSE)
-![GitHub stars](https://img.shields.io/github/stars/Xinhua81/TTech-SKILLs?style=social)
+![GitHub stars](https://img.shields.io/github/stars/TTech-Xin/TTech-SKILLs?style=social)
 
 TTech-SKILL 是一组面向 Agent 的技能（SKILL）文件，Agent 通过本 SKILL 可以更加高效地获取新闻、公司（含股票）、公共服务（会议、天气）、商品（电商）、AI 模型等信息。通过本 SKILL 获取的数据更加及时、准确、精炼，可有效降低 Token 消耗和对爬虫工具的依赖。
 TTech-SKILL 基于[TTech.xin](https://ttech.xin/developers) 公开的 RESTful API 开发，所有 API 均为开放接口。面向开发者，TTech 支持并鼓励用户提交数据，**向所有开放世界的Agent提供有价值的数据**，提升Agent的执行效率。
-[English](README.md) 
+[English](README.md)
 
 ---
 
@@ -18,6 +18,7 @@ TTech-SKILL 基于[TTech.xin](https://ttech.xin/developers) 公开的 RESTful AP
 | ttech-query-company | 查询公司信息（含股票日线/月线/年线），当前仅支持科技类公司 |
 | ttech-query-conference | 查询会议信息，当前仅支持科技类会议 |
 | ttech-query-model | 查询 AI 模型的基础信息、流行度、实际调用量和能力排名、各 CSP 供应商在各地域的报价等信息，并提供价格计算器等功能 |
+> 上述每个SKILL均提供中文加强版（命名后缀 -zh），适配QoderWork等中文Agent平台。
 
 **重要说明**：
 - 开发者可以浏览 [网站 TTech.xin](https://ttech.xin)，体验功能样例，该网站基于与SKILL相同的RESTful API开发；
@@ -38,11 +39,11 @@ TTech-SKILL 基于[TTech.xin](https://ttech.xin/developers) 公开的 RESTful AP
 在安装 SKILL 之前，请关注：
 - 建议先安装 Agent，然后再安装 SKILL；
 - 确保你的电脑已经安装了 Node.js：
-  - 在终端命令行中执行 node -v和npm -v；
+  - 在终端命令行中执行 node -v 和 npm -v；
   - 上述命令应当显示相应版本号，如提示不认识上述命令，请到[nodejs.org](https://nodejs.org)下载并安装Node.js（推荐V22.0.0及以上版本）；
 - 推荐采用安装方式1。中国大陆地区访问github不稳定，也可以采用安装方式2。安装方式3提供了兜底方案，依赖最少且对所有地区有效；
 
-**安装方式1：基于github包安装**
+**安装方式1：基于github安装**
 
 执行如下命令：
 ```bash
@@ -55,7 +56,7 @@ npx skills add TTech-Xin/TTech-SKILLs -g
 ```
 # 方案B
 # 第1步：先克隆到临时目录
-git clone https://github.com/Xinhua81/TTech-SKILLs.git /tmp/TTech-SKILLs
+git clone https://github.com/TTech-Xin/TTech-SKILLs.git /tmp/TTech-SKILLs
 # 第2步：从本地路径安装
 npx skills add /tmp/TTech-SKILLs -g
 ```
@@ -84,11 +85,11 @@ npx skills add /tmp/TTech-SKILLs -g
 ```
 或者
 ```bash
-npx skills add https://gitee.com:ttech-xin/ttech-skills -g
+npx skills add https://gitee.com/ttech-xin/ttech-skills -g
 ```
-安装方式与方式2类似，区别是从gitee网站上下载SKILL包。
+安装方式与方式1类似，区别是从gitee网站上下载SKILL包。
 
-**安装方式3：手工下载与安装**
+**安装方式3：手工从TTech.xin网站下载与安装**
 
 第1步：到网站[TTech.xin](https://TTech.xin/downloads)下载SKILL，并解压到临时目录，如`/tmp/TTech-SKILLs`；
 第2步：执行安装如下命令：
@@ -103,7 +104,7 @@ npx skills命令安装完成后，建议检查你Agent的SKILL目录已经有tte
 
 ```bash
 cd ~/.agents/skills/
-find . -maxdepth 1 type d -name "ttech-*" -exec ln -s $(pwd)/{} your_agent_skill_path \;
+find . -maxdepth 1 -type d -name "ttech-*" -exec ln -s $PWD/{} your_agent_skill_path \;
 ```
 
 **Windows**
@@ -122,28 +123,28 @@ for /d %D in (%USERPROFILE%\.agents\skills\ttech-*) do (
 #### OpenClaw
 OpenClaw 的 SKILL 路径默认在用户主目录下：
 - Linux：`~/.openclaw/skills`，即`/home/<username>/.openclaw/skills/`；
-- macOS：`~/.openclaw/skills`，即`/home/<username>/.openclaw/skills/`；
+- macOS：`~/.openclaw/skills`，即`/Users/<username>/.openclaw/skills/`；
 - Windows：`%USERPROFILE%\.openclaw\skills`，即`C:\Users\<Username>\.openclaw\skills`；
 
 <a id="agent_skill_path_for_qoderwork"></a>
 #### QoderWork
 QoderWork 的 SKILL 路径默认在用户主目录下：
 - Linux：`~/.qoderwork/skills`，即`/home/<username>/.qoderwork/skills/`；
-- macOS：`~/.qoderwork/skills`，即`/home/<username>/.qoderwork/skills/`；
+- macOS：`~/.qoderwork/skills`，即`/Users/<username>/.qoderwork/skills/`；
 - Windows：`%USERPROFILE%\.qoderwork\skills`，即`C:\Users\<Username>\.qoderwork\skills`；
 
 <a id="agent_skill_path_for_hermes"></a>
 #### Hermes
 Hermes 的 SKILL 路径默认在用户主目录下：
 - Linux：`~/.hermes/skills`，即`/home/<username>/.hermes/skills/`；
-- macOS：`~/.hermes/skills`，即`/home/<username>/.hermes/skills/`；
+- macOS：`~/.hermes/skills`，即`/Users/<username>/.hermes/skills/`；
 - Windows：`%USERPROFILE%\.hermes\skills`，即`C:\Users\<Username>\.hermes\skills`；
 
 <a id="agent_skill_path_for_claude"></a>
 #### Claude Code
 Claude Code 的 SKILL 路径默认在用户主目录下：
 - Linux：`~/.claude/skills`，即`/home/<username>/.claude/skills/`；
-- macOS：`~/.claude/skills`，即`/home/<username>/.claude/skills/`；
+- macOS：`~/.claude/skills`，即`/Users/<username>/.claude/skills/`；
 - Windows：`%USERPROFILE%\.claude\skills`，即`C:\Users\<Username>\.claude\skills`；
 
 ---
@@ -169,9 +170,9 @@ SKILLs/ttech-<skill-sub-name>/
 ├── examples.md       # 场景化调用示例
 └── scripts/          # 共享调用脚本
 ```
-SKILL-NAME的组织方式：
-- OpenClaw、Hermes、Claude Code等基于英文环境开发的 Agent Platform：建议采用基于英文开发的SKILL，如 `ttech-query-news`；
-- QoderWork等基于中文环境开发的Agent Platform：在英文SKILL的基础上提供了中文加强版，命名规则为ttech-{skill-sub-name}-zh，如`ttech-query-news` 提供 `ttech-query-news-zh`；
+SKILL-NAME的命名约定：
+- OpenClaw、Hermes、Claude Code等面向英文环境的 Agent Platform：建议采用基于英文开发的SKILL，如 `ttech-query-news`；
+- QoderWork等面向中文环境的Agent Platform：建议采用基于中文开发的SKILL，TTech在英文SKILL基础上提供了中文加强版，命名规则为ttech-<skill-sub-name>-zh，如`ttech-query-news` 提供 `ttech-query-news-zh`；
 
 ### SKILLs/packages 结构
 ```
@@ -182,6 +183,7 @@ SKILLs/packages/
 
 **scripts/**  
 存放所有 SKILL 共享的脚本，开发时只维护这一份。当前仅有 `call_api.js` 脚本，该脚本基于 Node.js 内置 `fetch` 实现跨平台 RESTful API 调用，可避免 macOS 系统 curl 因 JA3 指纹被拦截的问题。
+> 目前 scripts/ 仅包含 call_api.js，后续新增的共享脚本将由 sync.js 自动同步到所有 SKILL。
 
 **sync.js**  
 用于将 `packages/scripts/` 下的所有脚本同步到每个 SKILL 的 `scripts/` 目录中。执行时会自动：
@@ -218,7 +220,7 @@ SKILLs/packages/
 | | ⏳ 计划中 | 公司信息完备化 | 从基础信息扩展至公司完备信息 |
 | | ⏳ 计划中 | 商品查询 | 商品详情与各主流电商平台价格及购买路径 |
 
-> 最新进展请关注 [Issues](https://github.com/TTech-Xin/TTech-SKILL/issues)，欢迎提交功能建议。 
+> 最新进展请关注 [Issues](https://github.com/TTech-Xin/TTech-SKILLs/issues)，欢迎提交功能建议。 
 
 ---
 
@@ -226,8 +228,8 @@ SKILLs/packages/
 
 | 文档 | 说明 |
 |------|------|
-| [API 接口指南（中文）](Docs/api_zh.md) | RESTful API 请求参数与响应字段详解 |
-| [API Reference（English）](Docs/api_en.md) | English version of API specification |
+| [API 接口指南（中文）](Docs/API_zh.md) | RESTful API 请求参数与响应字段详解 |
+| [API Reference（English）](Docs/API_en.md) | English version of API specification |
 
 ---
 
@@ -241,7 +243,7 @@ SKILLs/packages/
 
 欢迎提交 Issue 和 Pull Request！
 
-- 发现文档与接口不一致？请提交 [Issue](https://github.com/TTech-Xin/TTech-SKILL/issues)。
+- 发现文档与接口不一致？请提交 [Issue](https://github.com/TTech-Xin/TTech-SKILLs/issues)。
 - 想新增平台适配或扩展 SKILL 功能？请先阅读 [CONTRIBUTING](Docs/CONTRIBUTING_zh.md)。
 
 ## 贡献者
