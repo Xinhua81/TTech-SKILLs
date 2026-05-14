@@ -40,48 +40,41 @@ TTech-SKILL 基于[TTech.xin](https://ttech.xin/developers) 公开的 RESTful AP
 - 确保你的电脑已经安装了 Node.js：
   - 在终端命令行中执行 node -v和npm -v；
   - 上述命令应当显示相应版本号，如提示不认识上述命令，请到[nodejs.org](https://nodejs.org)下载并安装Node.js（推荐V22.0.0及以上版本）；
-- 安装方式1依赖最少且对所有地区有效，优先推荐；非中国大陆地区也可以采用安装方式2；中国大陆地区访问github不稳定，也可以采用安装方式3;
+- 推荐采用安装方式1。中国大陆地区访问github不稳定，也可以采用安装方式2。安装方式3提供了兜底方案，依赖最少且对所有地区有效；
 
-**安装方式1：手工下载与安装（推荐）**
-
-第1步：到网站[TTech.xin](https://TTech.xin/downloads)下载SKILL，并解压到临时目录，如`/tmp/TTech-SKILLs`；
-第2步：执行安装如下命令：
-```bash
-npx skills add /tmp/TTech-SKILLs -g
-```
-安装过程会执行如下交互：
-- Select skill to install: 列出所有SKILL供用户选择，通过空格键和上下键进行选择，建议全部选择；
-- Proceed with installation：询问是否执行安装操作，建议选择Yes；
-- Installed N skills：汇总给出SKILL的安装情况；
-
-npx skills命令默认将SKILL安装在 `~/.agents/skills/` 或者 `%USERPROFILE%\.agents\skills\` 目录中，并在其发现的所有Agent中建立符号链接，链接到`~/.agents/skills/<skill-name>`或者  或者 `%USERPROFILE%\.agents\skills\<skill-name>`。其中：
-- `~/.agents/skills/` : npx skills 在 Linux、MacOS 环境下的安装路径；
-- `%USERPROFILE%\.agents\skills\` : npx skills 在 Windows 环境下的安装路径；
-
-**安装方式2：基于github包安装**
+**安装方式1：基于github包安装**
 
 执行如下命令：
-```
+```bash
 # 方案A
+npx skills add github:TTech-Xin/TTech-SKILLs -g
+# 或者
+npx skills add TTech-Xin/TTech-SKILLs -g
+```
+或者
+```
+# 方案B
 # 第1步：先克隆到临时目录
 git clone https://github.com/Xinhua81/TTech-SKILLs.git /tmp/TTech-SKILLs
 # 第2步：从本地路径安装
 npx skills add /tmp/TTech-SKILLs -g
 ```
-或者：
-```bash
-# 方案B
-npx skills add github:TTech-Xin/TTech-SKILLs -g
-# 或者
-npx skills add TTech-Xin/TTech-SKILLs -g
-```
+
+安装过程会执行如下交互：
+- Select skill to install: 列出所有SKILL供用户选择，通过空格键和上下键进行选择，建议全部选择；
+- Proceed with installation：询问是否执行安装操作，建议选择Yes；
+- Installed N skills：汇总给出SKILL的安装情况；
+
+npx skills命令默认将SKILL安装在**Agent全局SKILL路径**下，并在其发现的所有Agent中建立符号链接，链接到该路径。**Agent全局SKILL路径**的定义如下：
+- Linux/macOS环境：`~/.agents/skills/` ；
+- Windows环境：`%USERPROFILE%\.agents\skills\` ；
 
 注：
-- 方案A和方案B的本质是一样的，都是先从github上下载SKILL包，然后通过npx skills命令安装，不过执行方案A前需要先安装git；
-- 方案B中的2种命令是一样的，npx skills默认就是github；
+- 方案A和方案B的本质是一样的，都是先从github上下载SKILL包，然后通过npx skills命令安装，不过执行方案B前需要先安装git；
+- 方案A中的两种命令是一样的，npx skills默认就是github；
 
 
-**安装方式3：基于gitee安装**
+**安装方式2：基于gitee安装**
 
 ```bash
 # 第1步：先克隆到临时目录
@@ -95,17 +88,12 @@ npx skills add https://gitee.com:ttech-xin/ttech-skills -g
 ```
 安装方式与方式2类似，区别是从gitee网站上下载SKILL包。
 
-**安装方式4：Agent平台定制化安装工具**
+**安装方式3：手工下载与安装**
 
-待更新
-安装TTech所有技能：
+第1步：到网站[TTech.xin](https://TTech.xin/downloads)下载SKILL，并解压到临时目录，如`/tmp/TTech-SKILLs`；
+第2步：执行安装如下命令：
 ```bash
-openclaw skills install github:Xinhua81/TTech-SKILLs.git
-```
-
-安装TTech单个技能：
-```bash
-openclaw skills install github:Xinhua81/TTech-SKILLs.git/ttech-query-news
+npx skills add /tmp/TTech-SKILLs -g
 ```
 
 ### 配置Agent SKILL路径
@@ -121,7 +109,7 @@ find . -maxdepth 1 type d -name "ttech-*" -exec ln -s $(pwd)/{} your_agent_skill
 **Windows**
 
 ```CMD
-for /d %D in(D:\Projects\ttech-*) do (
+for /d %D in (%USERPROFILE%\.agents\skills\ttech-*) do (
   mklink /D "your_agent_skill_path\%~nxD" "%D"
 )
 ```
@@ -172,9 +160,9 @@ TTech-SKILL/
 └── package.json           # npm 包管理
 ```
 
-### SKILLs/{skill-name}结构
+### SKILLs/<skill-name>结构
 ```
-SKILLs/ttech-{skill-sub-name}/
+SKILLs/ttech-<skill-sub-name>/
 ├── SKILL.md          # 技能入口：YAML frontmatter + 能力说明 + 端点速查
 ├── skill.json        # 适配 Hermes 或其他需要 JSON 的平台
 ├── reference.md      # API 参数与响应字段详解
@@ -230,7 +218,7 @@ SKILLs/packages/
 | | ⏳ 计划中 | 公司信息完备化 | 从基础信息扩展至公司完备信息 |
 | | ⏳ 计划中 | 商品查询 | 商品详情与各主流电商平台价格及购买路径 |
 
-> 最新进展请关注 [Issues](https://github.com/Xinhua81/TTech-SKILL/issues)，欢迎提交功能建议。 
+> 最新进展请关注 [Issues](https://github.com/TTech-Xin/TTech-SKILL/issues)，欢迎提交功能建议。 
 
 ---
 
@@ -253,7 +241,7 @@ SKILLs/packages/
 
 欢迎提交 Issue 和 Pull Request！
 
-- 发现文档与接口不一致？请提交 [Issue](https://github.com/Xinhua81/TTech-SKILL/issues)。
+- 发现文档与接口不一致？请提交 [Issue](https://github.com/TTech-Xin/TTech-SKILL/issues)。
 - 想新增平台适配或扩展 SKILL 功能？请先阅读 [CONTRIBUTING](Docs/CONTRIBUTING_zh.md)。
 
 ## 贡献者
